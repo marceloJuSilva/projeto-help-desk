@@ -23,6 +23,7 @@ foreach($chamados as $chamado) {
   continue;
   }
 
+  
   $chamado_exibir[] = $chamado_dado;
 }
 
