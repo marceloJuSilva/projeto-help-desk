@@ -14,6 +14,27 @@ $chamados[] = $registro;
 fclose($arquivo);
 
 
+$chamado_exibir = array();
+$id_teste = 0;
+
+foreach($chamados as $chamado) {
+  $chamado_dado = explode('#',$chamado);
+  if($_SESSION['perfil_id'] == 2) {
+    if($_SESSION['id'] != $chamado_dado[0]){
+      continue;
+    }
+  
+  }
+;
+
+$chamado_exibir[$id_teste] = $chamado_dado;
+
+
+$id_teste ++;
+}
+
+
+
 ?>
 
 
@@ -47,33 +68,21 @@ fclose($arquivo);
             </div>
             <!--Codigo para gerar os chamados-->
             <div class="card-body">
-
-            <?php foreach($chamados as $chamado) { ?>
-
-            <?php 
-            $chamado_dado = explode('#',$chamado);
-
-            if($_SESSION['perfil_id'] == 2) {
-              if($_SESSION['id'] != $chamado_dado[0]){
-                continue;
-              }
-
-            }
-            if(count($chamado_dado) < 3){
-              continue;
-            }
-
-            ?>
             
+            
+
+              <?php foreach($chamado_exibir as $chamado) {?>   
               
+                        
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?= $chamado_dado[1];?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamado_dado[2];?></h6>
-                  <p class="card-text"><?= $chamado_dado[3];?></p>
+                  <h5 class="card-title"><?= $chamado[1];?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamado[2];?></h6>
+                  <p class="card-text"><?= $chamado[3];?></p>
 
                 </div>
               </div>
+
 
             <?php }?>
               <div class="row mt-5">
