@@ -1,21 +1,14 @@
 <?php require_once "validador_acesso.php";
 
- 
-
 $chamados = array();
 $arquivo = fopen('arquivo.hd','r');
-
 //enquanto houver registros (linhas) a ser recuperados
 while(!feof($arquivo)) {
 $registro = fgets($arquivo); //recupera os dados da linha
-$chamados[] = $registro;
-}
-
+$chamados[] = $registro; }
 fclose($arquivo);
 
-
 $chamado_exibir = array();
-$id_teste = 0;
 
 foreach($chamados as $chamado) {
   $chamado_dado = explode('#',$chamado);
@@ -25,15 +18,13 @@ foreach($chamados as $chamado) {
     }
   
   }
-;
 
-$chamado_exibir[$id_teste] = $chamado_dado;
+  if(count($chamado_dado) <4){
+  continue;
+  }
 
-
-$id_teste ++;
+  $chamado_exibir[] = $chamado_dado;
 }
-
-
 
 ?>
 
