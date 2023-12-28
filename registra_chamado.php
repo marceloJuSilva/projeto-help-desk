@@ -39,6 +39,6 @@ if($dado_chamado[4] == $numero_chamado){
 
     fclose($arquivo);
 
-    header('Location: abrir_chamado.php');
+    header('Location:chamado_aberto.php?chamado=' . $numero_chamado);
 
 ?>

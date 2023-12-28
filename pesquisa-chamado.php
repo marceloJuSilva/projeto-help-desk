@@ -17,7 +17,7 @@ $chamado_existe = false;
 foreach($chamados as $chamado) {
 $chamado_dado = explode('#',$chamado);
 
-    if(count($chamado_dado)<4){
+    if(count($chamado_dado)<5){
         continue;
     } 
 
